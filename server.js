@@ -3,6 +3,8 @@ const hbs = require('hbs');
 const hbsutils = require('hbs-utils')(hbs);
 const fs = require('fs');
 
+//heroku sets process.env.PORT (process.env is a node global, .PORT is set by heroku, so we provide a default);
+const port = process.env.PORT || 3000;
 var app = express();
 
 //literally, parts of your web site you'd like to reuse across different pages, probably.
@@ -64,5 +66,5 @@ app.get('/bad', (req, res) => {
 	});
 });
 
-app.listen(3000, () => console.log('Server is up on port 3---'));
+app.listen(port, () => console.log('Server is up on port ${port}'));
 
