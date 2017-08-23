@@ -66,5 +66,11 @@ app.get('/bad', (req, res) => {
 	});
 });
 
-app.listen(port, () => console.log('Server is up on port ${port}'));
+app.get('/projects', (req, res) => {
+	res.render('projects', {
+		pageTitle: 'Projects Page'
+	});
+});
+
+app.listen(port, () => console.log(`Server is up on port ${port}`));
 
